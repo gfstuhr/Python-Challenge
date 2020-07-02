@@ -5,9 +5,9 @@ import csv
 #Assigning Empty Lists
 Month = []
 Revenue = []
-avg = []
-increase = []
-decrease = []
+Change_values = []
+#increase = []
+#decrease = []
 
 #assigning file path
 PyBank_data = os.path.join("Resources", "budget_data.csv")
@@ -25,4 +25,13 @@ with open(PyBank_data, "r") as csvfile:
         Revenue.append(int(row[1]))
         Total_Revenue = sum(Revenue)
 
+        #finding change values
+    for i in range(len(Revenue)-1):
+        change = int(Revenue[i+1]) - int(Revenue[i])
+        Change_values.append(change)
+
+print(Month_Count)
+print(Total_Revenue)
+print(Change_values)
+    
     

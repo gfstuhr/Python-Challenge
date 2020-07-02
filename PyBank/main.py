@@ -3,7 +3,7 @@ import os
 import csv
 
 #Assigning Empty Lists
-Month_Count = []
+Month = []
 Revenue = []
 avg = []
 increase = []
@@ -18,8 +18,11 @@ with open(PyBank_data, "r") as csvfile:
 
     for row in csvreader:
         #Month Count
-        Month_Count.append(row[0])
-        print(Month_Count)
+        Month.append(row[0])
+        Month_Count = len(Month)
+        
         #revenue
-        Revenue.append(row[1])
+        Revenue.append(int(row[1]))
+        Total_Revenue = sum(Revenue)
+
     

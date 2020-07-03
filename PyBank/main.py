@@ -47,3 +47,14 @@ print(f"Total: ${Total_Revenue}")
 print(f" Average Change: ${avg}")
 print(f"Greatest Increase in Profits: {Month_Increase} ${greatest_increase}")
 print(f"Greatest Decrease in Profits: {Month_decrease} ${greatest_decrease}")
+
+#Output text file
+output = os.path.join("Analysis","Analysis.txt")
+with open(output,"w") as txtfile:
+    txtfile.write("Financial Analysis \n")
+    txtfile.write("-"*30 + "\n")
+    txtfile.write(f"Total Months: {Month_Count}\n")
+    txtfile.write(f"Total: ${Total_Revenue}\n")
+    txtfile.write(f" Average Change: ${avg}\n")
+    txtfile.write(f"Greatest Increase in Profits: {Month_Increase} ${greatest_increase}\n")
+    txtfile.write(f"Greatest Decrease in Profits: {Month_decrease} ${greatest_decrease}")

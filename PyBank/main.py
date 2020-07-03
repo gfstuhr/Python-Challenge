@@ -28,11 +28,22 @@ with open(PyBank_data, "r") as csvfile:
         change = int(Revenue[i+1]) - int(Revenue[i])
         Change_values.append(change)
     
-    #average change
-    avg = round(sum(Change_values)/len(Change_values),2)
+#average change
+avg = round(sum(Change_values)/len(Change_values),2)
 
-print(Month_Count)
-print(Total_Revenue)
-print(avg)
-    
-    
+#Greatest Increase
+greatest_increase = max(Change_values)
+Month_Increase = Month[(Change_values.index(greatest_increase))+1]
+
+#Greatest Decrease
+greatest_decrease = min(Change_values)
+Month_decrease = Month[(Change_values.index(greatest_decrease))+1]
+
+#Print analysis to terminal
+print("Financial Analysis")
+print("-"*30)
+print(f"Total Months: {Month_Count}")
+print(f"Total: ${Total_Revenue}")
+print(f" Average Change: ${avg}")
+print(f"Greatest Increase in Profits: {Month_Increase} ${greatest_increase}")
+print(f"Greatest Decrease in Profits: {Month_decrease} ${greatest_decrease}")

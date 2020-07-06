@@ -34,11 +34,25 @@ with open(Pypoll_data, "r") as csvfile:
 for Candidate in Candidates_Votes:
     Candidates_Percentage.append(round(((Candidate/voter_count)*100),2))
 
+max_votes = Candidates_Votes.index(max(Candidates_Votes))
+winner = Candidates[max_votes]
+
 #Print Statements
 print("Election Results")
 print("-"*30)
 print(f"Total Votes: {voter_count}")
+for Candidate in range(len(Candidates)):
+    print(f"{Candidates[Candidate]}: {Candidates_Percentage[Candidate]}% ({Candidates_Votes[Candidate]})")
 print("-"*30)
-print(Candidates)
-print(Candidates_Votes)
-print(Candidates_Percentage)  
+print(f"The winner is: {winner}!")
+
+#Output text file
+output = os.path.join("Poll_Results","Poll_Results.txt")
+with open(output,"w") as txtfile:
+    txtfile.write("Election Results \n")
+    txtfile.write("-"*30 + "\n")
+    txtfile.write(f"Total Votes: {voter_count} \n")
+    for Candidate in range(len(Candidates)):
+        txtfile.write(f"{Candidates[Candidate]}: {Candidates_Percentage[Candidate]}% ({Candidates_Votes[Candidate]}) \n")
+    txtfile.write("-"*30 + "\n")
+    txtfile.write(f"The winner is: {winner}!")

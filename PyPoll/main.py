@@ -6,6 +6,7 @@ import csv
 Candidates = []
 voters = []
 Candidates_Votes = []
+Candidates_Percentage = []
 
 #assigning file path
 Pypoll_data = os.path.join("Resources", "election_data.csv")
@@ -30,7 +31,8 @@ with open(Pypoll_data, "r") as csvfile:
             Candidates_Votes[Candidates_match] = Candidates_Votes[Candidates_match] + 1
 
 #Candidates % and Winner
-
+for Candidate in Candidates_Votes:
+    Candidates_Percentage.append(round(((Candidate/voter_count)*100),2))
 
 #Print Statements
 print("Election Results")
@@ -38,4 +40,5 @@ print("-"*30)
 print(f"Total Votes: {voter_count}")
 print("-"*30)
 print(Candidates)
-print(Candidates_Votes)  
+print(Candidates_Votes)
+print(Candidates_Percentage)  
